@@ -1,3 +1,4 @@
+//este modulo tiene la responsabilidad de iniciar la aplicación. recibe el servidor y lo pone a escuchar
 //                       _oo0oo_
 //                      o8888888o
 //                      88" . "88
@@ -19,10 +20,11 @@
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 const server = require('./src/app.js');
 const { conn } = require('./src/db.js');
+const PORT = 3001;
 
 // Syncing all the models at once.
 conn.sync({ force: true }).then(() => {
-  server.listen(3001, () => {
-    console.log('%s listening at 3001'); // eslint-disable-line no-console
+  server.listen(PORT, () => {
+    console.log(`Server raised in port: ${PORT}`); // eslint-disable-line no-console
   });
 });
