@@ -29,33 +29,33 @@ const Detail = () => {
               <p className={styles.stats}>{pokemon.id}</p>
             </div>
             <div className={styles.row}>
-              <p className={styles.label}>Life:</p>
+              <p className={styles.label}>Vida:</p>
               <div className={styles.stats}>
                 <div>{pokemon.life}</div>
               </div>
             </div>
             <div className={styles.row}>
-              <p className={styles.label}>Attack:</p>
+              <p className={styles.label}>Ataque:</p>
 
-              <div Name={styles.stats}>{pokemon.attack}</div>
+              <div className={styles.stats}>{pokemon.attack}</div>
             </div>
             <div className={styles.row}>
-              <p className={styles.label}>Defense:</p>
+              <p className={styles.label}>Defensa:</p>
 
               <div className={styles.stats}>{pokemon.defense}</div>
             </div>
             <div className={styles.row}>
-              <p className={styles.label}>Speed:</p>
+              <p className={styles.label}>Velocidad:</p>
 
               <div className={styles.stats}>{pokemon.speed}</div>
             </div>
             <div className={styles.row}>
-              <p className={styles.label}>Height:</p>
+              <p className={styles.label}>Altura:</p>
 
               <div className={styles.stats}>{pokemon.height}</div>
             </div>
             <div className={styles.row}>
-              <p className={styles.label}>Weight:</p>
+              <p className={styles.label}>Peso:</p>
 
               <div className={styles.stats}>{pokemon.weight}</div>
             </div>
