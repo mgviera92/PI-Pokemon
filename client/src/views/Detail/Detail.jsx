@@ -30,34 +30,34 @@ const Detail = () => {
             </div>
             <div className={styles.row}>
               <p className={styles.label}>Life:</p>
-              <div class={styles.stats}>
+              <div className={styles.stats}>
                 <div>{pokemon.life}</div>
               </div>
             </div>
             <div className={styles.row}>
               <p className={styles.label}>Attack:</p>
 
-              <div class={styles.stats}>{pokemon.attack}</div>
+              <div Name={styles.stats}>{pokemon.attack}</div>
             </div>
             <div className={styles.row}>
               <p className={styles.label}>Defense:</p>
 
-              <div class={styles.stats}>{pokemon.defense}</div>
+              <div className={styles.stats}>{pokemon.defense}</div>
             </div>
             <div className={styles.row}>
               <p className={styles.label}>Speed:</p>
 
-              <div class={styles.stats}>{pokemon.speed}</div>
+              <div className={styles.stats}>{pokemon.speed}</div>
             </div>
             <div className={styles.row}>
               <p className={styles.label}>Height:</p>
 
-              <div class={styles.stats}>{pokemon.height}</div>
+              <div className={styles.stats}>{pokemon.height}</div>
             </div>
             <div className={styles.row}>
               <p className={styles.label}>Weight:</p>
 
-              <div class={styles.stats}>{pokemon.weight}</div>
+              <div className={styles.stats}>{pokemon.weight}</div>
             </div>
           </div>
           <div className={styles.rightContainer}>

@@ -7,7 +7,7 @@ import Landing from "./views/Landing/Landing";
 
 import styles from "./App.module.css";
 
-function App(props) {
+function App() {
     const location = useLocation().pathname;
 
     return (

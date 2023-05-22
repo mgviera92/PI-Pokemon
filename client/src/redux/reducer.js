@@ -61,19 +61,18 @@ const applyFilters = (allPokemons, byType, bySource) => {
 
 const rootReducer = (state = initialState, action) => {
     switch (action.type) {
-        // Global Error - SETTER, REMOVER
+
         case GLOBAL_ERROR_SET:
             return { ...state, globalError: action.payload };
         case GLOBAL_ERROR_REMOVE:
             return { ...state, globalError: "" };
 
-        // Global Success - SETTER, REMOVER
         case GLOBAL_SUCCESS_SET:
             return { ...state, globalSuccess: action.payload };
         case GLOBAL_SUCCESS_REMOVE:
             return { ...state, globalSuccess: "" };
 
-        // All pokemons - SETTER
+
         case ALL_POKEMONS_GET:
             return {
                 ...state,
@@ -81,7 +80,6 @@ const rootReducer = (state = initialState, action) => {
                 pokemons: action.payload,
             };
 
-        // Pokemons - SETTER, FILTER (2), ORDER, REMOVER, SETTER BY NAME
         case POKEMONS_FILTER_BY_TYPE:
             const filteredPokemonsByType = applyFilters(
                 state.allPokemons,
@@ -123,20 +121,20 @@ const rootReducer = (state = initialState, action) => {
                         pokemons: state.allPokemons,
                         orderValue: action.payload,
                     };
-                case "alphabeticalAsc":
+                case "alfabeticoAsc":
                     orderedPokemons.sort((a, b) =>
                         a.name.localeCompare(b.name)
                     );
                     break;
-                case "alphabeticalDesc":
+                case "alfabeticoDesc":
                     orderedPokemons.sort((a, b) =>
                         b.name.localeCompare(a.name)
                     );
                     break;
-                case "attackAsc":
+                case "ataqueAsc":
                     orderedPokemons.sort((a, b) => a.attack - b.attack);
                     break;
-                case "attackDesc":
+                case "ataqueDesc":
                     orderedPokemons.sort((a, b) => b.attack - a.attack);
                     break;
                 default:
@@ -152,17 +150,15 @@ const rootReducer = (state = initialState, action) => {
         case POKEMONS_BY_NAME_GET:
             return { ...state, pokemons: action.payload };
 
-        // Pokemon Detail - SETTER, REMOVER
         case POKEMON_DETAIL_GET:
             return { ...state, pokemonDetail: action.payload };
         case POKEMON_DETAIL_REMOVE:
             return { ...state, pokemonDetail: {} };
 
-        // Types - SETTER
+
         case TYPES_GET:
             return { ...state, types: action.payload };
 
-        // Create Pokemon
         case CREATE_POKEMON:
             return {
                 ...state,
