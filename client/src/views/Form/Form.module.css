@@ -1,0 +1,206 @@
+body{
+    margin:0 ;
+    padding:0 ;
+}
+
+.bgForm {
+    background-image: linear-gradient( 112.1deg,  rgba(32,38,57,1) 11.4%, rgba(63,76,119,1) 70.2% );
+}
+
+.createContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: calc(100vh - 60px);
+    width: 100%;
+}
+
+.formContainer {
+    padding: 0 17rem;
+}
+
+
+.row {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.statsRow {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.textInput {
+    display: block;
+    width: 45%;
+}
+
+.stat {
+    display: block;
+    width: 30%;
+}
+
+.formContainer label {
+    color: #b3ddff;
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+
+.input {
+    margin-top: 0.2rem;
+    margin-bottom: 0.2rem;
+    padding: 0.5rem;
+    background-color: #a6c1d1;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495754;
+    box-shadow: none;
+    font-size: 1rem;
+    width: -webkit-fill-available;
+    border: 1px solid;
+}
+
+input:focus {
+    outline: 0;
+    border-color: #84e2da;
+    box-shadow: 0 0 0 0.2rem rgba(0, 255, 255, 0.25);
+}
+
+.error {
+    border: 1px solid #ff1100;
+}
+
+.error:focus {
+    outline: 0;
+    border-color: #ff1100;
+    box-shadow: 0 0 0 0.2rem rgba(244, 67, 54, 0.25);
+}
+
+.spanError {
+    color: #dc3545;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.typesSelectors {
+    margin-top: 1rem;
+    margin-bottom: 0.2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(7rem, 1fr));
+    grid-gap: 1rem;
+    grid-auto-flow: dense;
+    justify-items: center;
+    align-items: center;
+}
+
+.typeSelector {
+    display: flex;
+    width: 7rem;
+}
+
+
+.buttonSubmit {
+    background: #3a7dbd;
+    color: #ffffff;
+    padding: 8px 12px;
+    margin-top: 1rem;
+    margin: 0 auto;
+    border: none;
+    display: block;
+    width: 40%;
+    font-size: 2rem;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: 'Alegreya Sans SC', sans-serif;
+}
+
+.buttonSubmit:disabled {
+    cursor: not-allowed;
+}
+
+
+
+.normal {
+    background-color: #a8a878;
+}
+
+.fighting {
+    background-color: #c03028;
+}
+
+.flying {
+    background-color: #a890f0;
+}
+
+.poison {
+    background-color: #a040a0;
+}
+
+.ground {
+    background-color: #e0c068;
+}
+
+.rock {
+    background-color: #b8a038;
+}
+
+.bug {
+    background-color: #a8b820;
+}
+
+.ghost {
+    background-color: #705898;
+}
+
+.steel {
+    background-color: #b8b8d0;
+}
+
+.fire {
+    background-color: #f08030;
+}
+
+.water {
+    background-color: #6890f0;
+}
+
+.grass {
+    background-color: #78c850;
+}
+
+.electric {
+    background-color: #f8d030;
+}
+
+.psychic {
+    background-color: #f85888;
+}
+
+.ice {
+    background-color: #98d8d8;
+}
+
+.dragon {
+    background-color: #7038f8;
+}
+
+.dark {
+    background-color: #705848;
+}
+
+.fairy {
+    background-color: #ee99ac;
+}
+
+.unknown {
+    background-color: #68a090;
+}
+
+.shadow {
+    background-color: #404040;
+}

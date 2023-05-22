@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+
+body{
+    margin:0 ;
+    padding:0 ;
+}
+.bgLanding{
+    min-height: 100vh;
+    min-width: 100vh;
+    background-image: url("../../assets/pikachu-landing.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+    }
+
+.buttonContainer {
+    display: flex;
+    align-items: center;
+    height: calc(100vh - 40px);
+    padding: 0 150px;
+}
+
+.button {
+    background: linear-gradient(to bottom right, #643843, #99627A);
+    color: #ffffff;
+    padding: 16px 24px;
+    border: none;
+    /* border-radius: 25px; */
+    font-size: 2rem;
+    cursor: pointer;
+    font-family: 'Permanent Marker', cursive;
+    box-shadow: 5px 7px 14px 4px rgba(77,47,19,0.59);
+}
+
+@media only screen and (max-width: 480px) {
+    .landingContainer {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .textContainer {
+        width: 100%;
+        padding: 24px;
+        text-align: left;
+    }
+
+    .title {
+        font-size: 2.5rem;
+        margin-bottom: 16px;
+    }
+
+    .description {
+        font-size: 1rem;
+        margin-bottom: 24px;
+    }
+
+    .button {
+        font-size: 1rem;
+        padding: 12px 16px;
+    }
+
+    .imageContainer {
+        width: 100%;
+    }
+
+    .imageContainer img {
+        max-width: 100%;
+        max-height: 100%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .landingContainer {
+        height: auto;
+    }
+
+    .textContainer {
+        width: 100%;
+        padding: 32px;
+        text-align: left;
+    }
+
+    .title {
+        font-size: 3rem;
+        margin-bottom: 24px;
+    }
+
+    .description {
+        font-size: 1.25rem;
+        margin-bottom: 32px;
+    }
+
+    .button {
+        font-size: 1.25rem;
+        padding: 16px 24px;
+    }
+
+    .imageContainer {
+        width: 100%;
+    }
+
+    .imageContainer img {
+        max-width: 100%;
+        max-height: 100%;
+    }
+}

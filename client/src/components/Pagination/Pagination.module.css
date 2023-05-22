@@ -1,0 +1,40 @@
+.pagesContainer {
+  justify-self: center;
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.button {
+  padding: 0.5rem 1.2rem;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  background-color: #9c6795;
+  font-family: "Signika Negative", sans-serif;
+  transition: background-color 0.1s ease-in-out;
+  font-weight: bold;
+}
+
+.buttonSelected {
+  padding: 0.5rem 1.2rem;
+  border: none;
+  cursor: not-allowed;
+  font-family: "Signika Negative", sans-serif;
+  background-color: #c56774;
+  opacity: 0.85;
+  transition: background-color 0.1s ease-in-out;
+  box-shadow: none;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.button:disabled {
+  background: #636363;
+  opacity: 0.6;
+  transition: background-color 0.1s ease-in-out;
+  box-shadow: none;
+  font-weight: bold;
+  color: #ffffff;
+  cursor: not-allowed;
+}

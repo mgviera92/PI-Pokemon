@@ -1,0 +1,40 @@
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 60px;
+    grid-auto-rows: minmax(0, 1fr);
+    width: 100%;
+    height: 60px;
+    background-color: #580558;
+    color: #000000;
+}
+
+
+.linkContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 8rem;
+  }
+           
+  .button {
+    background-image: linear-gradient(to right, #AA076B 0%, #61045F  51%, #AA076B  100%);
+    padding: 8px 20px;
+    text-align: center;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: #b695cc;            
+    box-shadow: 0 0 5px #4b4b4b;
+    display: block;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+
+  .button:hover {
+    background-position: right center;
+    color: #ffffff;
+    text-decoration: none;
+  }
+ 
