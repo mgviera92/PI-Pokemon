@@ -12,7 +12,6 @@ import {
   getAllTypes,
 } from "../../redux/actions";
 
-
 const SelectType = ({ type, pokemons }) => {
   const count = pokemons.filter((pokemon) =>
     pokemon.types.includes(type)
@@ -37,7 +36,7 @@ const SelectSource = ({ pokemons }) => {
       <option key="0" value="dataBase">
         Base de Datos ({dataBasePokemons})
       </option>
-      <option key="1" value="pokeApi" disabled={!Boolean(pokeApiPokemons)}>
+      <option key="1" value="pokeApi">
         Api ({pokeApiPokemons})
       </option>
     </>
@@ -45,8 +44,10 @@ const SelectSource = ({ pokemons }) => {
 };
 
 const Home = (props) => {
+  //props del reducer
   const { pokemons, types, filtersValues, orderValue } = props;
 
+  //props de actions
   const {
     getAllPokemons,
     filterPokemonsByType,
@@ -55,33 +56,37 @@ const Home = (props) => {
     getAllTypes,
   } = props;
 
+  //variable de estado actual y funcion que actualiza
   const [currentPage, setCurrentPage] = useState(1);
   const [pokemonsPerPage, setPokemonsPerPage] = useState(12);
   const [filterType, setFilterType] = useState(filtersValues.byType);
   const [filterSource, setFilterSource] = useState(filtersValues.bySource);
   const [order, setOrder] = useState(orderValue);
 
+  //me conecto a la base de datos y a la api
   useEffect(() => {
     !pokemons.length && getAllPokemons();
     !types.length && getAllTypes();
   }, []);
 
-//paginado
+  //paginado
   const totalPages = Math.ceil(pokemons.length / pokemonsPerPage);
   const pages = [];
   for (let i = 1; i <= totalPages; i++) {
     pages.push(i);
   }
 
+  //de los 150 pokemons que traigo, muestro los de la pagina actual
   const paginatedPokemons = pokemons.slice(
     (currentPage - 1) * pokemonsPerPage,
     currentPage * pokemonsPerPage
   );
+
   const handlePageChange = (event) => {
     setCurrentPage(Number(event.target.id));
   };
 
-//filtros
+  //filtros
   const handleFilterByType = (event) => {
     setFilterType(event.target.value);
     filterPokemonsByType(event.target.value);
@@ -94,7 +99,7 @@ const Home = (props) => {
     setCurrentPage(1);
   };
 
-//orden
+  //orden
   const handleOrder = (event) => {
     setOrder(event.target.value);
     orderPokemons(event.target.value);
@@ -143,8 +148,8 @@ const Home = (props) => {
         {pokemons.length ? (
           <CardsContainer paginatedPokemons={paginatedPokemons} />
         ) : (
-          <div className={styles.loadingContainer}>
-            <span className={styles.loader}></span>
+          <div>
+            <span className={styles.loading}>...Loading...</span>
           </div>
         )}
         <div className={styles.navBarMobile}>

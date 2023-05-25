@@ -47,8 +47,8 @@ const createNewPokemonHandler = async (req, res) => {
   const pokemon = req.body;
 
   try {
-      const response = await createNewPokemon(pokemon);
-      res.status(201).json(response);
+      const newPokemon = await createNewPokemon(pokemon);
+      res.status(201).json(newPokemon); //201: se ha llevado a cabo la creacion de un recurso
   } catch (error) {
       res.status(400).json({ error: error.message });
   }

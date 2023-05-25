@@ -1,9 +1,5 @@
 const axios = require("axios");
 
-// REGEX
-const REGEX_URL =
-  /^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$/;
-
 // api url
 const URL_Pokemon = "https://pokeapi.co/api/v2/pokemon";
 
@@ -59,14 +55,15 @@ const cleanPokemonDb = (pokemon) => {
 
 const getAllPokemons = async () => {
   // traigo los pokemons de la base de datos
-  const query = await Pokemon.findAll({ include: Type });
-  const dbPokemons = query.map((q) => cleanPokemonDb(q));
+  const pokemons = await Pokemon.findAll({ include: Type });
+  const dbPokemons = pokemons.map((p) => cleanPokemonDb(p));
 
   // traigo los pokemons de la api
   const arrayPokemons = (await axios.get(`${URL_Pokemon}?limit=150`)).data
     .results;
   const promises = arrayPokemons.map((r) => axios(r.url));
   const responses = await Promise.all(promises);
+  // console.log(responses)
   const apiPokemons = responses.map((r) => {
     return cleanPokemonApi(r.data);
   });
@@ -79,21 +76,26 @@ const getAllPokemons = async () => {
 };
 
 const getPokemonsByName = async (name) => {
+//traigo los pokemons de la bdd 
   const pokemonsDb = await Pokemon.findAll({
-    where: { name: { [Op.iLike]: name } },
+    where: { name: { [Op.iLike]: name } }, //case insensitive, toma mayuscula o minuscula
     include: Type,
   });
 
+  //mapeo cada pokemon que encuentro en la bdd, lo "filtro" y lo guardo en la constante pokemons
   const pokemons = pokemonsDb.map((pokemon) => cleanPokemonDb(pokemon));
 
   try {
+    //traigo los pokemons de la api, los guardo momentaneamente en response
     const response = await axios.get(`${URL_Pokemon}/${name.toLowerCase()}`);
+    //si encuentra la propiedad name que le llega por parámetro, pushea el resultado a pokemons
     if (response.data.name) {
       pokemons.push(cleanPokemonApi(response.data));
     }
   } catch (error) {}
 
   if (pokemons.length === 0) {
+    //si no hay ningun resultado guardado en pokemon, arroja un error
     throw new Error(`"${name}" not found.`);
   }
   return pokemons;
@@ -106,7 +108,7 @@ const getPokemonById = async (id, source) => {
       return cleanPokemonApi(response.data);
     } catch (error) {
       if (error.message === "Request failed with status code 404") {
-        throw new Error(`Id "${id}" not found in ${source}`);
+        throw new Error(`ID "${id}" not found in ${source}`);
       } else {
         throw new Error(error.message);
       }
@@ -116,7 +118,7 @@ const getPokemonById = async (id, source) => {
   if (source === "db") {
     const pokemon = await Pokemon.findByPk(id, { include: Type });
     if (pokemon === null) {
-      throw new Error(`Id "${id}" not found in ${source}`);
+      throw new Error(`ID "${id}" not found in ${source}`);
     }
 
     return cleanPokemonDb(pokemon);
@@ -124,23 +126,18 @@ const getPokemonById = async (id, source) => {
 };
 
 const createNewPokemon = async (pokemon) => {
-  const { name, image, life, attack, defense, speed, height, weight, types } =
-    pokemon;
+  const { name, image, life, attack, defense, speed, height, weight, types } = pokemon;
 
   if (!name) {
     throw new Error("Name is required.");
   }
 
   if (!image) {
-    throw new Error("Image url is required.");
+    throw new Error("Image URL is required.");
   }
 
   if (name.length > 20) {
     throw new Error("Name should not be longer than 20 characters.");
-  }
-
-  if (!REGEX_URL.test(image)) {
-    throw new Error("Image url is invalid.");
   }
 
   if (
@@ -158,19 +155,22 @@ const createNewPokemon = async (pokemon) => {
     throw new Error("Pokemon can't have more than 2 types.");
   }
 
+  //traigo todos los tipos guardados en la bdd
   const typesCreated = await Type.findAll();
+  //guardo la propiedad id de los tipos
   const typeIdsCreated = typesCreated.map((type) => type.id);
 
+  //verifico si cada tipo tiene un id válido
   if (!types.every((t) => typeIdsCreated.includes(t))) {
     throw new Error("Invalid type");
   }
 
-  // Creción de Pokemon
+  //creo el nuevo pokemon
   const newPokemon = await Pokemon.create({
     ...pokemon,
-    name: pokemon.name.replace(/\s(?=\w)/g, ""),
   });
 
+  //recorro los tipos y establezco una relacion en la tabla intermedia entre el id del nuevo pokemon y id del tipo ingresado
   for (let i = 0; i < types.length; i++) {
     await Pokemon_Types.create({
       PokemonId: newPokemon.id,
@@ -178,12 +178,12 @@ const createNewPokemon = async (pokemon) => {
     });
   }
 
-  // Return pokemon created
+  // retorno el pokemon creado
   const createdPokemon = await Pokemon.findByPk(newPokemon.id, {
     include: Type,
   });
 
-  return cleanPokemonData(cleanPokemonDb(createdPokemon));
+  return cleanPokemonDb(createdPokemon);
 };
 
 module.exports = {

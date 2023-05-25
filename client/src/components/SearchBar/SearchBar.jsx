@@ -11,7 +11,8 @@ const SearchBar = () => {
   };
 
   const dispatch = useDispatch();
-  const handleSearchsubmit = (event) => {
+  const handleSearchSubmit = (event) => {
+    //cancelo la actualizacion por default del evento
     event.preventDefault();
     if (name !== "") {
       dispatch(getPokemonsByName(name));
@@ -21,7 +22,7 @@ const SearchBar = () => {
   };
 
   return (
-    <form className={styles.search} onSubmit={handleSearchsubmit}>
+    <form className={styles.search} onSubmit={handleSearchSubmit}>
       <input
         type="text"
         className={styles.input}

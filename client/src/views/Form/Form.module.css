@@ -4,7 +4,7 @@ body{
 }
 
 .bgForm {
-    background-image: linear-gradient( 112.1deg,  rgba(32,38,57,1) 11.4%, rgba(63,76,119,1) 70.2% );
+    background-image: linear-gradient( 112.1deg,  rgb(57, 32, 49) 11.4%, rgb(80, 36, 52) 70.2% );
 }
 
 .createContainer {
@@ -45,20 +45,19 @@ body{
 }
 
 .formContainer label {
-    color: #b3ddff;
+    color: #ddb3ff;
     font-weight: 700;
     font-size: 1.2rem;
 }
-
 
 .input {
     margin-top: 0.2rem;
     margin-bottom: 0.2rem;
     padding: 0.5rem;
-    background-color: #a6c1d1;
+    background-color: #ae97c0;
     font-weight: 400;
     line-height: 1.5;
-    color: #495754;
+    color: #ffffff;
     box-shadow: none;
     font-size: 1rem;
     width: -webkit-fill-available;
@@ -67,12 +66,12 @@ body{
 
 input:focus {
     outline: 0;
-    border-color: #84e2da;
-    box-shadow: 0 0 0 0.2rem rgba(0, 255, 255, 0.25);
+    border-color: #ddb3ff;
+    box-shadow: 0 0 0 0.2rem rgba(255, 0, 234, 0.25);
 }
 
 .error {
-    border: 1px solid #ff1100;
+    border: 2px solid #ff1100;
 }
 
 .error:focus {
@@ -82,7 +81,7 @@ input:focus {
 }
 
 .spanError {
-    color: #dc3545;
+    color: #ff0019;
     font-size: 0.9rem;
     margin-bottom: 1rem;
 }
@@ -96,16 +95,18 @@ input:focus {
     grid-auto-flow: dense;
     justify-items: center;
     align-items: center;
+    color:rgb(57, 32, 49)
 }
 
 .typeSelector {
     display: flex;
     width: 7rem;
+    
 }
 
 
 .buttonSubmit {
-    background: #3a7dbd;
+    background: #500622;
     color: #ffffff;
     padding: 8px 12px;
     margin-top: 1rem;
@@ -123,9 +124,7 @@ input:focus {
     cursor: not-allowed;
 }
 
-
-
-.normal {
+/* .normal {
     background-color: #a8a878;
 }
 
@@ -203,4 +202,4 @@ input:focus {
 
 .shadow {
     background-color: #404040;
-}
+} */

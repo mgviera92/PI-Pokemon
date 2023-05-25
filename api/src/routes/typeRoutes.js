@@ -1,6 +1,6 @@
 const { Router } = require("express");
 
-// importo los handlers
+// importo el handler
 const { getAllTypesHandler } = require("../handlers/typeHandler");
 
 const typesRouter = Router();

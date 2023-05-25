@@ -4,9 +4,16 @@ body{
 }
 
 .bgHome {
-    background-image: linear-gradient( 112.1deg,  rgba(32,38,57,1) 11.4%, rgba(63,76,119,1) 70.2% );
+    background-image: linear-gradient( 112.1deg,  rgb(57, 32, 49) 11.4%, rgb(80, 36, 52) 70.2% );
     min-height: 100vh;
     min-width: 100vh;
+}
+.loading{
+    color: white;
+    font-weight: 700;
+    font-size: 4rem;
+    display: flex;
+    justify-content: center;
 }
 
 .homeContainer {

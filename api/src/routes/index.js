@@ -5,7 +5,6 @@ const typesRouter = require("./typeRoutes");
 
 const router = Router();
 
-// ======================== Routers
 router.use("/pokemons", pokemonsRouter);
 
 router.use("/types", typesRouter);

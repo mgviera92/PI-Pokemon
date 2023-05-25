@@ -1,9 +1,4 @@
-// ======================== Action Types
 import {
-    GLOBAL_ERROR_SET,
-    GLOBAL_ERROR_REMOVE,
-    GLOBAL_SUCCESS_SET,
-    GLOBAL_SUCCESS_REMOVE,
     ALL_POKEMONS_GET,
     POKEMONS_FILTER_BY_TYPE,
     POKEMONS_FILTER_BY_SOURCE,
@@ -16,23 +11,19 @@ import {
     CREATE_POKEMON,
 } from "./action-types";
 
-// ======================== Initial State
-
 const initialState = {
-    globalError: "",
-    globalSuccess: "",
     allPokemons: [],
     pokemons: [],
     filtersValues: {
         byType: "allTypes",
         bySource: "allSources",
     },
-    orderValue: "defaul",
+    orderValue: "default",
     pokemonDetail: {},
     types: [],
 };
 
-// ======================== Apply filters function
+// filtros
 const applyFilters = (allPokemons, byType, bySource) => {
     let filteredPokemons = [...allPokemons];
 
@@ -57,21 +48,10 @@ const applyFilters = (allPokemons, byType, bySource) => {
     return filteredPokemons;
 };
 
-// ======================== Root Reducer
+
 
 const rootReducer = (state = initialState, action) => {
     switch (action.type) {
-
-        case GLOBAL_ERROR_SET:
-            return { ...state, globalError: action.payload };
-        case GLOBAL_ERROR_REMOVE:
-            return { ...state, globalError: "" };
-
-        case GLOBAL_SUCCESS_SET:
-            return { ...state, globalSuccess: action.payload };
-        case GLOBAL_SUCCESS_REMOVE:
-            return { ...state, globalSuccess: "" };
-
 
         case ALL_POKEMONS_GET:
             return {

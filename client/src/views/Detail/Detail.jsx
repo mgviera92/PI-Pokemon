@@ -8,6 +8,7 @@ const Detail = () => {
   const { id } = useParams();
 
   const dispatch = useDispatch();
+  //a traves de las funciones conectarme a los recursos
   useEffect(() => {
     dispatch(getPokemonDetail(id));
     return () => {
@@ -15,6 +16,7 @@ const Detail = () => {
     };
   }, [dispatch, id]);
 
+//uso el hook para acceder al estado del detalle del pokemon
   const pokemon = useSelector((state) => state.pokemonDetail);
 
   return (
@@ -66,7 +68,7 @@ const Detail = () => {
             <div className={styles.types}>
               {pokemon.types.map((type, index) => (
                 <span
-                  key={index}
+                key={index}
                   className={`${styles.type} ${styles[`${type}`]}`}
                 >
                   {type}

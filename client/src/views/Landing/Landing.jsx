@@ -6,7 +6,7 @@ const Landing = () => {
     <div className={styles.bgLanding}>
       <div className={styles.buttonContainer}>
         <Link to="/home">
-          <button className={styles.button}>Vamos!</button>
+          <button className={styles.button}>Gotta Catch 'Em All!!</button>
         </Link>
       </div>
     </div>

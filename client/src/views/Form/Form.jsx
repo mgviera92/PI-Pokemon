@@ -6,7 +6,6 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   getAllTypes,
   createPokemon,
-  setGlobalSuccess,
 } from "../../redux/actions";
 
 const Form = () => {
@@ -45,6 +44,7 @@ const Form = () => {
     !allTypes.length && dispatch(getAllTypes());
   }, [dispatch]);
 
+  //handlers para cambios en los atributos
   const handleNameChange = (event) => {
     setNewPokemon({ ...newPokemon, name: event.target.value });
     setErrors({
@@ -126,6 +126,7 @@ const Form = () => {
     const typeName = event.target.name;
 
     if (event.target.checked) {
+      //cuando se clickea un tipo
       setNewPokemon({
         ...newPokemon,
         types: [...newPokemon.types, { id: typeId, name: typeName }],
@@ -138,6 +139,7 @@ const Form = () => {
         ]),
       });
     } else {
+      //cuando se desclickea un tipo
       setNewPokemon({
         ...newPokemon,
         types: newPokemon.types.filter((type) => type.id !== typeId),
@@ -179,7 +181,6 @@ const Form = () => {
           types: newPokemon.types.map((type) => Number(type.id)),
         };
         dispatch(createPokemon(pokemonToCreate));
-        dispatch(setGlobalSuccess("El pokemon se ha creado correctamente"));
         setNewPokemon({
           name: "",
           image: "",
@@ -339,7 +340,7 @@ const Form = () => {
               </div>
             ) : (
               <div className={styles.loadingContainer}>
-                <span class={styles.loader}></span>
+                <span className={styles.loader}></span>
               </div>
             )}
             <span className={styles.spanError}>{errors.types}</span>
