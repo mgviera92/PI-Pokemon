@@ -9,10 +9,10 @@ const {
 
 const pokemonsRouter = Router();
 
-pokemonsRouter.get("", getPokemonsHandler);
+pokemonsRouter.get("/", getPokemonsHandler);
 
 pokemonsRouter.get("/:id", getPokemonByIdHandler);
 
-pokemonsRouter.post("", createNewPokemonHandler);
+pokemonsRouter.post("/", createNewPokemonHandler);
 
 module.exports = pokemonsRouter;

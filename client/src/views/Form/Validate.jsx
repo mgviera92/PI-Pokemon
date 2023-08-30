@@ -1,3 +1,6 @@
+const REGEX_URL = /^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$/
+
+
 export const validate = (newPokemon) => {
   const { name, image, life, attack, defense, speed, height, weight } =
     newPokemon;
@@ -22,7 +25,11 @@ export const validate = (newPokemon) => {
 
   if (!image) {
     errors.image = "Se requiere una imagen";
-  } 
+  }
+
+  if(image && !REGEX_URL.test(image)) {
+    errors.image = "La imagen debe ser un link URL"
+  }
 
   if (!life) {
     errors.life = "Se requiere la estadistica: Vida";
@@ -48,6 +55,7 @@ export const validate = (newPokemon) => {
   if (height < 0) errors.height = "La estadística: Altura no puede ser 0";
 
   if (weight < 0) errors.weight = "La estadística: Peso no puede ser 0";
+
 
   return errors;
 };

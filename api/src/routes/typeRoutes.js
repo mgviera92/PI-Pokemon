@@ -6,6 +6,6 @@ const { getAllTypesHandler } = require("../handlers/typeHandler");
 const typesRouter = Router();
 
 
-typesRouter.get("", getAllTypesHandler);
+typesRouter.get("/", getAllTypesHandler);
 
 module.exports = typesRouter;

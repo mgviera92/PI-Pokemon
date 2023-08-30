@@ -161,6 +161,7 @@ const Form = () => {
     event.preventDefault();
 
     if (buttonClicks === 0) {
+      //si no hay ningun click en el boton "crear", valida todos los campos
       const validarErrores = validate(newPokemon);
       const newErrors = {
         name: validarErrores.name,
@@ -175,6 +176,7 @@ const Form = () => {
       };
       setErrors(newErrors);
     } else {
+      //si se detecta un click, verifico que no haya ningun error
       if (!Object.values(errors).some((error) => error !== "")) {
         const pokemonToCreate = {
           ...newPokemon,
@@ -339,9 +341,7 @@ const Form = () => {
                   ))}
               </div>
             ) : (
-              <div className={styles.loadingContainer}>
-                <span className={styles.loader}></span>
-              </div>
+              <div><p>El pokemon se ha creado con éxito</p></div>
             )}
             <span className={styles.spanError}>{errors.types}</span>
 

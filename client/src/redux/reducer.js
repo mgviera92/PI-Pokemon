@@ -66,7 +66,6 @@ const rootReducer = (state = initialState, action) => {
                 action.payload,
                 state.filtersValues.bySource
             );
-
             return {
                 ...state,
                 pokemons: filteredPokemonsByType,
@@ -75,13 +74,13 @@ const rootReducer = (state = initialState, action) => {
                     byType: action.payload,
                 },
             };
+
         case POKEMONS_FILTER_BY_SOURCE:
             const filteredPokemonsBySource = applyFilters(
                 state.allPokemons,
                 state.filtersValues.byType,
                 action.payload
             );
-
             return {
                 ...state,
                 pokemons: filteredPokemonsBySource,
@@ -125,16 +124,18 @@ const rootReducer = (state = initialState, action) => {
                 pokemons: orderedPokemons,
                 orderValue: action.payload,
             };
+    
         case POKEMONS_REMOVE:
             return { ...state, pokemons: state.allPokemons };
+
         case POKEMONS_BY_NAME_GET:
             return { ...state, pokemons: action.payload };
 
         case POKEMON_DETAIL_GET:
             return { ...state, pokemonDetail: action.payload };
+
         case POKEMON_DETAIL_REMOVE:
             return { ...state, pokemonDetail: {} };
-
 
         case TYPES_GET:
             return { ...state, types: action.payload };

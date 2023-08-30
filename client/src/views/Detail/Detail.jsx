@@ -8,7 +8,7 @@ const Detail = () => {
   const { id } = useParams();
 
   const dispatch = useDispatch();
-  //a traves de las funciones conectarme a los recursos
+  //a traves de las funciones me conecto a los recursos
   useEffect(() => {
     dispatch(getPokemonDetail(id));
     return () => {
@@ -22,44 +22,18 @@ const Detail = () => {
   return (
     <div className={styles.detailContainer}>
       {pokemon.image ? (
-        <>
+        <div className={styles.card}>
           <div className={styles.leftContainer}>
-            <h1 className={styles.title}>{pokemon.name.toUpperCase()}</h1>
+          <h1 className={styles.label}>{pokemon.name.toUpperCase()}</h1>
 
-            <div className={styles.row}>
-              <p className={styles.label}>ID:</p>
-              <p className={styles.stats}>{pokemon.id}</p>
-            </div>
-            <div className={styles.row}>
-              <p className={styles.label}>Vida:</p>
-              <div className={styles.stats}>
-                <div>{pokemon.life}</div>
-              </div>
-            </div>
-            <div className={styles.row}>
-              <p className={styles.label}>Ataque:</p>
-
-              <div className={styles.stats}>{pokemon.attack}</div>
-            </div>
-            <div className={styles.row}>
-              <p className={styles.label}>Defensa:</p>
-
-              <div className={styles.stats}>{pokemon.defense}</div>
-            </div>
-            <div className={styles.row}>
-              <p className={styles.label}>Velocidad:</p>
-
-              <div className={styles.stats}>{pokemon.speed}</div>
-            </div>
-            <div className={styles.row}>
-              <p className={styles.label}>Altura:</p>
-
-              <div className={styles.stats}>{pokemon.height}</div>
-            </div>
-            <div className={styles.row}>
-              <p className={styles.label}>Peso:</p>
-
-              <div className={styles.stats}>{pokemon.weight}</div>
+            <div className={styles.stats}>
+              <p>ID: {pokemon.id}</p>
+              <p>Vida: {pokemon.life}</p>
+              <p>Ataque: {pokemon.attack}</p>
+              <p>Defensa: {pokemon.defense}</p>
+              <p>Velocidad: {pokemon.speed}</p>
+              <p>Altura: {pokemon.height * 10} cm</p>
+              <p>Peso: {pokemon.weight * 0.1} kg</p>
             </div>
           </div>
           <div className={styles.rightContainer}>
@@ -76,7 +50,7 @@ const Detail = () => {
               ))}
             </div>
           </div>
-        </>
+        </div>
       ) : (
         <p>Not Found</p>
       )}
