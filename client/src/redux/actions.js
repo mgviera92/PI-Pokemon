@@ -12,7 +12,7 @@ import {
   CREATE_POKEMON,
 } from "./action-types";
 
-const BACKEND_URL = "https://pokemon-app-mgviera92.vercel.app";
+const BACKEND_URL = "https://pokemon-app-server-lzf0.onrender.com";
 
 export const getAllPokemons = () => {
   return async (dispatch) => {
