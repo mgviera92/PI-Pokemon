@@ -20,12 +20,12 @@
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 const server = require('./src/app.js');
 const { conn } = require('./src/db.js');
-const PORT = 5432;
+const { DB_PORT } = process.env;
 
 // Syncing all the models at once.
 conn.sync({ force: true }).then(() => {
-  server.listen(PORT, () => {
-    // console.log(`Server raised in port: ${PORT}`);// eslint-disable-line no-console
-    console.log(`Server raised successfully`);
+  server.listen(`${DB_PORT}`, () => {
+    //console.log(`Server raised in port: ${PORT}`);// eslint-disable-line no-console
+    console.log(`Server raised successfully in port ${DB_PORT}`);
   });
 });
