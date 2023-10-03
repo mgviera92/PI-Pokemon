@@ -59,7 +59,7 @@ const getAllPokemons = async () => {
   const dbPokemons = pokemons.map((p) => cleanPokemonDb(p));
 
   // traigo los pokemons de la api
-  const arrayPokemons = (await axios.get(`${URL_Pokemon}?limit=150`)).data
+  const arrayPokemons = (await axios.get(`${URL_Pokemon}?limit=100`)).data
     .results;
   const promises = arrayPokemons.map((r) => axios(r.url));
   const responses = await Promise.all(promises);
