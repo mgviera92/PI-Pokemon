@@ -19,7 +19,7 @@
 //                       `=---='
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 const server = require('./src/app');
-const { conn } = require('./src/db-modified.js');
+const { conn } = require('./src/db.js');
 
 // Syncing all the models at once.
 const PORT = process.env.DB_PORT || 3001;
