@@ -18,7 +18,7 @@
 //     =====`-.____`.___ \_____/___.-`___.-'=====
 //                       `=---='
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-const server = require('./src/app-modified.js');
+const server = require('./src/app');
 const { conn } = require('./src/db-modified.js');
 
 // Syncing all the models at once.
