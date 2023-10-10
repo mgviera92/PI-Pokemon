@@ -12,6 +12,8 @@ import {
   getAllTypes,
 } from "../../redux/actions";
 
+import Loading from '../Loading/Loading';
+
 const SelectType = ({ type, pokemons }) => {
   const count = pokemons.filter((pokemon) =>
     pokemon.types.includes(type)
@@ -148,9 +150,7 @@ const Home = (props) => {
         {pokemons.length ? (
           <CardsContainer paginatedPokemons={paginatedPokemons} />
         ) : (
-          <div>
-            <span className={styles.loading}>...Loading...</span>
-          </div>
+          <Loading />
         )}
         <div className={styles.navBarMobile}>
           <Pagination
