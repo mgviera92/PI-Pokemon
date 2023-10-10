@@ -149,9 +149,9 @@ const Home = (props) => {
         </div>
         {pokemons.length ? (
           <CardsContainer paginatedPokemons={paginatedPokemons} />
-        ) : (
+        ) :
           <Loading />
-        )}
+        }
         <div className={styles.navBarMobile}>
           <Pagination
             currentPage={currentPage}
